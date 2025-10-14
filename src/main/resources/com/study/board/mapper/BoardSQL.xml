@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.board.mapper.boardSQL">
+
+    <select id="selectBoardList" parameterType="String" resultType="com.study.board.entity.Board">
+        <![CDATA[
+            SELECT *
+            FROM BOARD
+            WHERE CREATE_DATE >= IFNULL(#{headDate}, '2000-01-01')
+              AND CREATE_DATE <= IFNULL(#{tailDate}, '9999-12-31')
+              AND (
+                TITLE LIKE CONCAT('%', IFNULL(#{searchWord}, ''), '%')
+                OR CONTENT LIKE CONCAT('%', IFNULL(#{searchWord}, ''), '%')
+                OR WRITER LIKE CONCAT('%', IFNULL(#{searchWord}, ''), '%')
+              )
+        ]]>
+
+    </select>
+
+</mapper>
