@@ -6,4 +6,5 @@ import lombok.Data;
 public class BoardListDTO {
     int boardId;
     String title;
+    String writer;
 }

@@ -20,13 +20,21 @@ public class BoardService {
         *   입력값이 빈값이면 null로 담아 보내며
         *   쿼리문에서는 null이 아닌 경우로 값 검증
         * */
+        System.out.println("* getBoardList");
         List<Board> list = boardDAO.selectBoardList(boardSearchInput.getSearchWord(),
                                             boardSearchInput.getFrontDate(),
                                             boardSearchInput.getTailDate());
 
         List<BoardListDTO> resultList = new ArrayList<BoardListDTO>();
+        for(Board board : list){
+            BoardListDTO boardListDTO = new BoardListDTO();
+            boardListDTO.setBoardId(board.getBoardId());
+            boardListDTO.setTitle(board.getTitle());
+            boardListDTO.setWriter(board.getWriter());
 
-        System.out.println(list.size());
+            resultList.add(boardListDTO);
+
+        }
         return resultList;
     }
 

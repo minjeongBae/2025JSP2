@@ -26,10 +26,8 @@ public class BoardController extends HttpServlet {
         }
     }
 
-
-
-    private String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        System.out.println("왔니?");
+    private void process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        System.out.println("Start process");
         String command = req.getParameter("command");
         CommandHandler handler = null;
         if(command==null || command.trim().isEmpty()){
@@ -45,6 +43,6 @@ public class BoardController extends HttpServlet {
 
         }
 
-        return handler.processCommand(req, res);
+        handler.processCommand(req, res);
     }
 }

@@ -3,6 +3,7 @@ package com.study.board;
 import com.study.board.dto.BoardListDTO;
 import com.study.board.dto.BoardSearchInputDTO;
 import com.study.board.service.BoardService;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -17,7 +18,7 @@ public class BoardHandler implements CommandHandler {
     }
 
     @Override
-    public String processCommand(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public void processCommand(HttpServletRequest req, HttpServletResponse res) throws Exception {
         /*
         *   검색 조건 있을 때
         *   검색 조건 없을 때
@@ -45,6 +46,10 @@ public class BoardHandler implements CommandHandler {
 
         List<BoardListDTO> boardList = boardService.getBoardList(boardSearchInput);
         req.setAttribute("boardList", boardList);
-        return "/list";
+        //return "/board/list.jsp";
+
+        // JSP 경로는 웹 루트 기준 또는 WEB-INF 기준
+        RequestDispatcher rd = req.getRequestDispatcher("/board/list.jsp");
+        rd.forward(req, res);
     }
 }

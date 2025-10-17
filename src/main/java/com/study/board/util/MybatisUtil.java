@@ -19,7 +19,7 @@ public class MybatisUtil {
 
     static{
         try {
-            String resource = "config/mybatis-config.xml";
+            String resource = "/mybatis-config.xml";
 
             // mybatis가 inputStream으로 설정 파일을 바이트씩 읽을 수 있게 함
             // class path를 쉽게 찾기 위해 쓰는 Resources 클래스 사용
@@ -28,6 +28,7 @@ public class MybatisUtil {
             // 빌드하여 설정파일의 설정값을 기반으로 설정 객체 생성
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

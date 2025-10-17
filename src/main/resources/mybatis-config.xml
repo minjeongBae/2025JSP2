@@ -15,6 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/study/board/mapper/boardSQL.xml"/>
+        <mapper resource="mapper/BoardSQL.xml"/>
     </mappers>
 </configuration>

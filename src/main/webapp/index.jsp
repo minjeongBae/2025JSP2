@@ -9,7 +9,12 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+
+<form action="/list" method="get">
+    <input type="hidden"  id="command" name="command" value="list">
+    <button type="submit">Go</button>
+</form>
+
 
 
 <%

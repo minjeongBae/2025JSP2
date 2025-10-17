@@ -38,6 +38,9 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'ch.qos.logback:logback-classic:1.4.11'
 
+    // JSTL
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
 }
 
 test {
